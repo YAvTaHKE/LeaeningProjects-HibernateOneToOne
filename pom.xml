@@ -15,7 +15,7 @@
     </properties>
 
     <dependencies>
-        <!-- JUnit 5 (JUnit 4 устарел для Java 21) -->
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -29,6 +29,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <!-- PostgreSQL драйвер (версия для Java 21) -->
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -41,6 +42,12 @@
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.4.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version> <!-- Для Jakarta EE 9/10 -->
         </dependency>
     </dependencies>
 
@@ -56,13 +63,13 @@
                     </configuration>
                 </plugin>
 
-                <!-- Обновить surefire для JUnit 5 -->
+
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.2.5</version>
                 </plugin>
 
-                <!-- Остальные плагины тоже лучше обновить, но это не критично -->
+
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.3.2</version>
@@ -71,7 +78,7 @@
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.3.1</version>
                 </plugin>
-                <!-- ... остальные плагины -->
+
             </plugins>
         </pluginManagement>
     </build>
