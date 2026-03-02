@@ -34,8 +34,7 @@ public class Principal {
 
     public Principal() {}
 
-    public Principal(int id, String name, int age) {
-        this.id = id;
+    public Principal(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -68,7 +67,8 @@ public class Principal {
     public String toString() {
         return "Principal{" +
                 "age=" + age +
-                ", name='" + name + '\'' +
+                ", name='" + name +
+                ", School='" + school + '\'' +
                 '}';
     }
 

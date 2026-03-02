@@ -54,7 +54,8 @@ public class School {
     @Override
     public String toString() {
         return "School{" +
-                "name='" + school_number +
+                "number='" + school_number +
+                "principal='" + principal +
                 '}';
     }
 }

@@ -31,30 +31,25 @@ public class App {
 
         try {
             session.beginTransaction();
-/*//получите любого режиссера, а затем получите список
-//его фильмов.
-            Director person = session.get(Director.class, 1);
-            System.out.println(person.getName());
-            System.out.println(person.getAge());
-            List<Movie> movieList = person.getMovieList();
-            movieList.forEach(System.out::println);*/
+            // С помощью Hibernate получите любого директора, а затем получите его школу.
+            /*Principal principal = session.get(Principal.class, 3);
+            System.out.println(principal);
+            School school = principal.getSchool();
+            System.out.println(school);*/
 
-/*            //Получите любой фильм, а затем получите его режиссера.
-            Movie movie = session.get(Movie.class, 3);
-            System.out.println(movie);
-            Director director = movie.getDirector();
-            System.out.println(director);*/
+            // Получите любую школу, а затем получите ее директора.
+            /*School school = session.get(School.class, 1);
+            System.out.println(school);
+            Principal principal = school.getDirector();
+            System.out.println(principal);*/
 
-/*            //Добавьте еще один фильм для любого режиссера.
-            Director director = session.get(Director.class, 3);
-            Movie movie = new Movie("Аватар2", 2015, director);
-            director.getMovieList().add(movie);
+            // Создайте нового директора и новую школу и свяжите эти сущности.
+            Principal principal = new Principal("Ivan", 55);
+            School school = new School(125, principal);
+            session.persist(school);
 
-            director.getMovieList().forEach(System.out::println);
-
-            session.save(movie);
-*/
-            //Создайте нового режиссера и новый фильм и свяжите эти сущности.
+            // Смените директора у существующей школы.
+            // Попробуйте добавить вторую школу для существующего директора и изучите возникающую ошибку.
             session.getTransaction().commit();
 
 
