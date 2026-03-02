@@ -17,7 +17,7 @@ public class Principal {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "principal_seq")
     @SequenceGenerator(
             name = "principal_seq",
-            sequenceName = "principal_id_seq",
+            sequenceName = "schema1.principal_id_seq",
             allocationSize = 1)
     @Column(name = "id")
     private int id;

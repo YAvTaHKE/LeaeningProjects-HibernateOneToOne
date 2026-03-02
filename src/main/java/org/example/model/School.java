@@ -1,6 +1,7 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "School", schema = "schema1")
@@ -9,7 +10,7 @@ public class School {
     @Id
     //альтернатива автогенерации @GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "school_seq")
-    @SequenceGenerator(name = "school_seq", sequenceName = "school_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "school_seq", sequenceName = "schema1.school_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 
@@ -17,7 +18,8 @@ public class School {
     private int school_number;
 
     @OneToOne
-    @JoinColumn (name = "principal_id", referencedColumnName = "id")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
+    @JoinColumn(name = "principal_id", referencedColumnName = "id")
     private Principal principal;
 
     public School(){};
@@ -43,11 +45,11 @@ public class School {
         this.school_number = school_number;
     }
 
-    public Principal getDirector() {
+    public Principal getPrincipal() {
         return principal;
     }
 
-    public void setOwner(Principal principal) {
+    public void setPrincipal(Principal principal) {
         this.principal = principal;
     }
 
