@@ -13,20 +13,18 @@ package org.example;
 7) Удалите фильм у любого режиссера.
 */
 
-import org.example.model.Director;
-import org.example.model.Movie;
+import org.example.model.Principal;
+import org.example.model.School;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import java.util.List;
 
 
 public class App {
     public static void main(String[] args) {
         Configuration configuration = new Configuration()
-                .addAnnotatedClass(Director.class)
-                .addAnnotatedClass(Movie.class);
+                .addAnnotatedClass(Principal.class)
+                .addAnnotatedClass(School.class);
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
