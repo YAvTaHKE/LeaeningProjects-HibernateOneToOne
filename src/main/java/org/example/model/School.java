@@ -24,9 +24,8 @@ public class School {
 
     public School(){};
 
-    public School(int school_number, Principal principal){
+    public School(int school_number){
         this.school_number = school_number;
-        this.principal = principal;
     }
 
     public int getId() {

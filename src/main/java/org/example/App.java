@@ -49,14 +49,24 @@ public class App {
             session.persist(school);
 */
             // Смените директора у существующей школы.
-            School school = session.get(School.class, 7);
+            /*School school = session.get(School.class, 4);
+            Principal principal = school.getPrincipal();
+            if (principal != null) {
+                principal.setSchool(null);
+            }
+
             Principal newPrincipal = new Principal("Evgeniy", 33, school);
             school.setPrincipal(newPrincipal);
 
-            session.persist(newPrincipal);
+            session.persist(newPrincipal);*/
 
 
             // Попробуйте добавить вторую школу для существующего директора и изучите возникающую ошибку.
+            School sc = session.get(School.class, 2);
+            Principal pr = session.get(Principal.class, 2);
+            pr.setSchool(sc);
+            session.persist(pr);
+
             session.getTransaction().commit();
 
 
