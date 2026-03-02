@@ -34,7 +34,8 @@ public class Principal {
 
     public Principal() {}
 
-    public Principal(String name, int age) {
+    public Principal(String name, int age, School school) {
+        this.school = school;
         this.name = name;
         this.age = age;
     }

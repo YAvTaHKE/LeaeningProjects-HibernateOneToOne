@@ -44,11 +44,18 @@ public class App {
             System.out.println(principal);*/
 
             // Создайте нового директора и новую школу и свяжите эти сущности.
-            Principal principal = new Principal("Ivan", 55);
+            /*Principal principal = new Principal("Ivan", 55);
             School school = new School(125, principal);
             session.persist(school);
-
+*/
             // Смените директора у существующей школы.
+            School school = session.get(School.class, 7);
+            Principal newPrincipal = new Principal("Evgeniy", 33, school);
+            school.setPrincipal(newPrincipal);
+
+            session.persist(newPrincipal);
+
+
             // Попробуйте добавить вторую школу для существующего директора и изучите возникающую ошибку.
             session.getTransaction().commit();
 
